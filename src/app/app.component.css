@@ -1,0 +1,25 @@
+.app {
+
+}
+
+header {
+    height: 20%;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    background-color: beige;
+}
+
+aside {
+    height: 100vh;
+    margin-top: 0px;
+    width: 20%;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
