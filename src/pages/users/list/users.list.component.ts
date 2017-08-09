@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {UsersService} from "services";
 import { Router, ActivatedRoute } from '@angular/router';
+
 interface User {
     id: number;
     name: string;
@@ -21,6 +22,7 @@ export class UsersListComponent implements OnInit {
     onSelect(user) {
        this.router.navigate(['/users', user.id]);
      }
+
 
     ngOnInit() {
         setTimeout(() => {

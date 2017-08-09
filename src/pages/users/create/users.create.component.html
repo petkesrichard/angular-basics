@@ -1,8 +1,8 @@
 <h1>Users </h1>
 
 <label>Username</label>
-<input [(ngModel)]="myString">
+<input [(ngModel)]="username">
 <label>Email</label>
-<input [(ngModel)]="myString">
+<input [(ngModel)]="email">
 <br>
-<button>Save user</button>
+<button (click)="createUser()">Save user</button>

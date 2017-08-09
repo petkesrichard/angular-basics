@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 const usersList: Array<object> = [{
     id: 1,
     name: 'User',
@@ -18,8 +19,12 @@ const usersList: Array<object> = [{
     email: 'tttttt@yyy.com4'
 }];
 
+
+
 @Injectable()
 export class UsersService {
+
+    private userID:number;
     constructor() {
         console.log('****************');
         console.log('creating service');
@@ -35,8 +40,14 @@ export class UsersService {
         return user ? user : {};
     }
 
-    public createUser(username) {
-
+    public createUser(username:string,email:string) {
+        this.userID = Object.keys(usersList).length + 1;
+        const  newUser = {
+            id: this.userID,
+            name: username,
+            email: email,
+        }
+        usersList.push(newUser);
     }
 
     public editUser() {
