@@ -4,4 +4,6 @@ import {Component} from "@angular/core";
     selector: 'users-create',
     templateUrl: './users.create.component.html'
 })
-export class UsersCreate {}
+export class UsersCreate {
+    public myString:String = 'asdsa22a';
+}

@@ -1,5 +1,5 @@
-import { Routes } from "@angular/router";
-import { HomeComponent, UsersComponent, AdminComponent } from "pages"
+import { RouterModule,Routes } from "@angular/router";
+import { HomeComponent, UsersComponent, AdminComponent, UsersDetail } from "pages"
 
 export const ROUTES: Routes =  [
     {
@@ -14,4 +14,8 @@ export const ROUTES: Routes =  [
         path: 'admin',
         component: AdminComponent
     },
+    {
+        path: 'users/:id',
+        component: UsersDetail
+    }
 ];

@@ -1,6 +1,5 @@
-<div *ngIf="userList">
-    <div *ngFor="let user of userList; let i = index">
-        <h1>{{ user.name }}</h1>
-        <h1>{{ user.email}}</h1>
-    </div>
-</div>
+<ul *ngIf="usersList">
+    <li *ngFor="let user of usersList; let i = index" (click)="onSelect(user)">
+        {{ user.name }}
+    </li>
+</ul>

@@ -7,7 +7,7 @@ import {timeout} from "rxjs/operator/timeout";
     template: `
         <users-create></users-create>
         
-        *******************************
+        <br>*******************************
         
         <users-list></users-list>
     `
