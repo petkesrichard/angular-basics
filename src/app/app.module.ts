@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { UsersComponent, HomeComponent, AdminComponent, UsersCreate, UsersListComponent, UsersDetail } from 'pages';
+import { UsersComponent, HomeComponent, AdminComponent, UsersCreate, UsersDelete, UsersListComponent, UsersDetail } from 'pages';
 import { ROUTES } from './app.routes';
 import {FormsModule} from "@angular/forms";
 import {UsersService} from 'services';
@@ -15,6 +15,7 @@ import {UsersService} from 'services';
         HomeComponent,
         UsersComponent,
         UsersCreate,
+        UsersDelete,
         UsersListComponent,
         UsersDetail,
         AdminComponent

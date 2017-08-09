@@ -1,8 +1,16 @@
-<h1>Users </h1>
+<div class="create-user-content">
+    <h3>Create User</h3>
 
-<label>Username</label>
-<input [(ngModel)]="username">
-<label>Email</label>
-<input [(ngModel)]="email">
-<br>
-<button (click)="createUser()">Save user</button>
+    <label>Username</label>
+
+    <input [(ngModel)]="username">
+
+    <label>Email</label>
+
+    <input [(ngModel)]="email">
+
+    <br>
+
+    <button class="create-button" (click)="createUser()">Save user</button>
+</div>
+

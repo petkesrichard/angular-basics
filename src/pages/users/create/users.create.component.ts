@@ -2,10 +2,11 @@ import {Component} from "@angular/core";
 import {UsersService} from "services"
 @Component({
     selector: 'users-create',
-    templateUrl: './users.create.component.html'
+    templateUrl: './users.create.component.html',
+    styleUrls: ['./users.create.component.css']
 })
 export class UsersCreate {
-    public username:String;
+    public userName:String;
     public email:String;
 
     constructor(private usersService:UsersService) {
@@ -13,7 +14,7 @@ export class UsersCreate {
     }
 
     createUser(){
-        this.usersService.createUser(this.username,this.email);
+        this.usersService.createUser(this.userName,this.email);
     }
 
 }
