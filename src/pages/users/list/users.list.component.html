@@ -1,5 +1,9 @@
+<h1>User List:</h1>
+
 <ul *ngIf="usersList">
     <li *ngFor="let user of usersList; let i = index" (click)="onSelect(user)">
         {{ user.name }}
     </li>
 </ul>
+
+<users-delete></users-delete>

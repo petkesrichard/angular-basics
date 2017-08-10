@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core'
 
 @Component ({
-    selector: 'user-delete',
+    selector: 'users-delete',
     templateUrl: './users.delete.component.html',
 })
 
-export class UsersDelete implements OnInit {
+export class UsersDeleteComponent implements OnInit {
     public userName:String;
 }

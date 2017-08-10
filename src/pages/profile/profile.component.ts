@@ -3,19 +3,11 @@ import {timeInterval} from "rxjs/operator/timeInterval";
 import {timeout} from "rxjs/operator/timeout";
 
 @Component({
-    selector: 'home-component',
-    template: `
-        <h1>Home component here</h1>
-        
-        <p>{{ title }}</p>
-        
-        <button (click)="handleButtonClick()">My button</button>
-        
-        <img>
-    `,
-    styleUrls: ['./home.component.css']
+    selector: 'profile-component',
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnInit, OnDestroy {
     public title: string = 'This is title';
 
     constructor() {

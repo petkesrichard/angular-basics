@@ -1,17 +1,26 @@
 <div class="app">
 
     <header>
-        <h1>My Project</h1>
+        <h1>My Profile</h1>
         <nav></nav>
     </header>
 
     <div class="aside-and-content">
         <aside>
-            <h1>Menu</h1>
+            <div class="menu-h1">
+                <h1>Menu</h1>
+            </div>
 
-            <button routerLink="home">Home</button>
+            <button routerLink="profile">Home</button>
 
-            <button routerLink="users">Users</button>
+            <div class="dropdown">
+                <button routerLink="users" class="dropbtn">Users</button>
+
+                <div class="dropdown-content">
+                    <a routerLink="create">Create</a>
+                    <a routerLink="list">List</a>
+                </div>
+            </div>
 
             <button routerLink="admin">Admin</button>
         </aside>

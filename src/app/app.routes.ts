@@ -1,14 +1,23 @@
 import { RouterModule,Routes } from "@angular/router";
-import { HomeComponent, UsersComponent, AdminComponent, UsersDetail } from "pages"
+import { ProfileComponent, UsersComponent, AdminComponent, UsersDetail, UsersListComponent } from "pages"
+import {UsersCreateComponent} from "../pages/users/create/users.create.component";
 
 export const ROUTES: Routes =  [
     {
-        path: 'home',
-        component: HomeComponent,
+        path: 'profile',
+        component: ProfileComponent,
     },
     {
         path: 'users',
         component: UsersComponent
+    },
+    {
+        path: 'create',
+        component: UsersCreateComponent
+    },
+    {
+        path: 'list',
+        component: UsersListComponent
     },
     {
         path: 'admin',

@@ -1,28 +1,27 @@
 import { NgModule } from '@angular/core';
-
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from "@angular/router";
-
 import { AppComponent } from './app.component';
-import { UsersComponent, HomeComponent, AdminComponent, UsersCreate, UsersDelete, UsersListComponent, UsersDetail } from 'pages';
+import { UsersComponent, ProfileComponent, ProfileEditComponent, AdminComponent,UsersCreateComponent, UsersDeleteComponent, UsersListComponent, UsersDetail } from 'pages';
 import { ROUTES } from './app.routes';
-import {FormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {UsersService} from 'services';
 
 @NgModule({
     declarations: [ 
         AppComponent,
-        HomeComponent,
+        ProfileComponent,
+        ProfileEditComponent,
         UsersComponent,
-        UsersCreate,
-        UsersDelete,
+        UsersDeleteComponent,
+        UsersCreateComponent,
         UsersListComponent,
         UsersDetail,
         AdminComponent
     ],
     imports: [
         BrowserModule,
-        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(ROUTES),
     ],
     providers: [ UsersService ],

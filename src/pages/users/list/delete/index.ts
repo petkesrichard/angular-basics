@@ -1,0 +1,1 @@
+export { UsersDeleteComponent } from './users.delete.component'

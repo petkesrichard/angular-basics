@@ -1,16 +1,27 @@
 <div class="create-user-content">
     <h3>Create User</h3>
 
-    <label>Username</label>
+    <form
+        [formGroup]="userCreateForm"
+    >
+        <div>
+            <label for="userName">UsereName</label>
 
-    <input [(ngModel)]="username">
+            <input id="userName" [formControlName]="'userName'">
 
-    <label>Email</label>
+            <label for="password">Password</label>
 
-    <input [(ngModel)]="email">
+            <input id="password" [formControlName]="'password'">
 
-    <br>
+            <button type="button" class="generate-password-button">Generate</button>
+        </div>
 
-    <button class="create-button" (click)="createUser()">Save user</button>
+        <div>
+            <p id="errorMessage"></p>
+        </div>
+
+        <button class="create-button">Create User</button>
+    </form>
+
 </div>
 
