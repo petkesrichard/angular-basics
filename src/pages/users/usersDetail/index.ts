@@ -1,1 +1,0 @@
-export { UsersDetail } from './users.usersDetail.component'

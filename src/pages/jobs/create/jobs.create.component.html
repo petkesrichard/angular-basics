@@ -1,0 +1,32 @@
+<h2>Create new job</h2>
+
+<form
+        [formGroup]="createJobForm"
+        (ngSubmit)="onSubmit()"
+>
+
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" [formControlName]="'name'">
+    </div>
+    <br>
+    <div>
+        <label for="description">Description</label>
+        <textarea id="description" [formControlName]="'description'">
+        </textarea>
+    </div>
+    <br>
+    <div [formArrayName]="'requirements'">
+        <h4>Requirements</h4>
+        <button type="button" (click)="addRequirementToList()">
+            Add to list
+        </button>
+
+        <div *ngFor="let control of createJobForm.get('requirements').controls; let i = index">
+            <label>Requirement #{{ i + 1 }}</label>
+            <input [formControlName]="i">
+            <p>________________</p>
+        </div>
+    </div>
+    <button>Submit</button>
+</form>

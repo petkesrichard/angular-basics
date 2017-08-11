@@ -1,0 +1,27 @@
+<h1>Jobs</h1>
+
+<jobs-create></jobs-create>
+
+<div
+        *ngFor="let job of jobs"
+        (click)="activateJobInfo(job)"
+>
+    <h3>{{ job.name }}</h3>
+
+    <button (click)="deleteJob(job.id)">  Delete</button>
+    **************************
+</div>
+
+<div *ngIf="activeJobInfo">
+    ###############################
+    <h1>{{ activeJobInfo.name }}</h1>
+
+    <p>{{ activeJobInfo.description }}</p>
+
+    <ul>
+        <li *ngFor="let requirement of activeJobInfo.requirements">
+            {{ requirement }}
+        </li>
+    </ul>
+    ###############################
+</div>

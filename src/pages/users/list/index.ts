@@ -1,2 +1,3 @@
 export * from './delete';
-export { UsersListComponent } from './users.list.component';
+export * from './user';
+export {UsersListComponent} from './users.list.component';

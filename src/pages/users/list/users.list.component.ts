@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import {UsersService} from "services";
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -13,20 +13,20 @@ interface User {
     templateUrl: './users.list.component.html',
 })
 export class UsersListComponent implements OnInit {
-    public usersList: any[];;
+
+    public userList = [];
+
+    ngOnInit() {
+        this.userList = this.usersService.getAllUsers();
+        console.log(this.userList);
+    }
 
     constructor(private usersService:UsersService, private router:Router) {
-
+        console.log("??? UserList")
     }
 
     onSelect(user) {
        this.router.navigate(['/users', user.id]);
      }
 
-
-    ngOnInit() {
-        setTimeout(() => {
-            this.usersList = this.usersService.getAllUsers();
-        }, 3000);
-    }
 }

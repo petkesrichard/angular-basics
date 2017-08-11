@@ -1,9 +1,15 @@
-<h1>User List:</h1>
+<!--<div class="panel panel-default" style="width: 100%">
 
-<ul *ngIf="usersList">
-    <li *ngFor="let user of usersList; let i = index" (click)="onSelect(user)">
-        {{ user.name }}
-    </li>
-</ul>
-
+    <div class="panel-heading">User list</div>
+    <ul class="list-group" *ngIf="usersList">
+            <li class="list-group-item" *ngFor="let user of usersList; let i = index" (click)="onSelect(user)">
+            {{ user.name }}
+        </li>
+    </ul>
+</div>-->
+<div class="panel panel-default" style="width: 100%">
+    <div class="panel-heading">Users list</div>
+    <users-detail *ngFor="let user of userList;" [value]="user"></users-detail>
 <users-delete></users-delete>
+</div>
+
