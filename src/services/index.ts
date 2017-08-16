@@ -1,2 +1,3 @@
 export { UsersService } from './users.service';
 export { JobsService } from './jobs.service';
+export { ProfileService } from './profile.service';

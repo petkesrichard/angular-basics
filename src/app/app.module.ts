@@ -6,6 +6,7 @@ import {
     UsersComponent,
     ProfileComponent,
     ProfileEditComponent,
+    ProfileViewComponent,
     AdminComponent,
     JobsComponent,
     JobsCreateComponent,
@@ -15,17 +16,24 @@ import {
     UsersUserComponent,
 } from 'pages';
 
+import {
+    UsersService,
+    JobsService,
+    ProfileService
+} from 'services';
+
+
 import { ROUTES } from './app.routes';
 import {ReactiveFormsModule} from "@angular/forms";
-import { UsersService, JobsService } from 'services';
 import {HttpModule} from "@angular/http";
-import {} from "../pages/users/list/user/users.user.component";
+
 
 @NgModule({
     declarations: [ 
         AppComponent,
         ProfileComponent,
         ProfileEditComponent,
+        ProfileViewComponent,
         UsersComponent,
         UsersDeleteComponent,
         UsersCreateComponent,
@@ -33,7 +41,7 @@ import {} from "../pages/users/list/user/users.user.component";
         UsersUserComponent,
         JobsComponent,
         JobsCreateComponent,
-        AdminComponent
+        AdminComponent,
     ],
     imports: [
         BrowserModule,
@@ -44,6 +52,7 @@ import {} from "../pages/users/list/user/users.user.component";
     providers: [
         UsersService,
         JobsService,
+        ProfileService
     ],
     bootstrap: [ AppComponent ]
 })

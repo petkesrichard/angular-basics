@@ -1,1 +1,92 @@
-<h1>Edit Profile component</h1>
+<h1>Create a new profile</h1>
+
+<form
+        [formGroup]="profileEditForm"
+
+>
+    <div class="style">
+        <h3>General</h3>
+        <label for="FullName">FullName</label>
+        <input id="FullName" [formControlName]="'FullName'">
+
+
+        <div >
+            <label for="About"> About</label>
+            <textarea id="About" type="text"  [formControlName]="'About'">
+            </textarea>
+        </div>
+    </div>
+
+
+    <div [formArrayName]="'School'" class="school">
+        <h3>School</h3>
+        <button (click)="addToSchoolList()" >+</button>
+
+        <div   class="form" *ngFor="let school of profileEditForm.get('School').controls; let i=index"
+               [formGroupName]="i"
+        >
+            <div>
+                <label [for]="'Name' + i">Name</label>
+                <input [id]="'Name' + i" [formControlName]="'Name'">
+            </div>
+
+            <div>
+                <label [for]="'Year' + i">Year</label>
+                <input [id]="'Year' + i" [formControlName]="'Year'">
+            </div>
+        </div>
+    </div>
+
+    <div [formArrayName]="'University'" class="university">
+        <h3>University</h3>
+
+        <button (click)="addToUniversityList()" >+</button>
+
+        <div class="form" *ngFor="let university of profileEditForm.get('University').controls; let i=index"
+             [formGroupName]="i"
+        >
+            <div>
+                <label [for]="'Name' + i">Name</label>
+                <input [id]="'Name' + i" [formControlName]="'Name'">
+            </div>
+
+            <div>
+                <label [for]="'Year' + i">Year</label>
+                <input [id]="'Year' + i" [formControlName]="'Year'">
+            </div>
+        </div>
+    </div>
+
+    <div [formArrayName]="'Skills'" class="skills">
+        <h3>Skills</h3>
+
+        <button (click)="addToSkillsList()">+</button>
+
+        <div class="form" *ngFor="let skill of profileEditForm.get('Skills').controls; let i = index"
+             [formGroupName] = "i">
+
+            <div>
+                <label [for]="'Skill' + i">Skill</label>
+                <input [id]="'Skill' + i" [formControlName]="'Skill'">
+            </div>
+
+            <div>
+                <label [for]="'Level' + i">Level</label>
+
+                <div class="level-options">
+                    <input [id]="'Level' + i" [formControlName]="'Level'" type="radio" name="Level" value="low"> Low<br>
+                    <input [id]="'Level' + i" [formControlName]="'Level'" type="radio" name="Level" value="medium"> Medium<br>
+                    <input [id]="'Level' + i" [formControlName]="'Level'" type="radio" name="Level" value="high"> High<br>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <button id="edit">Edit</button>
+    <button id="save" (click)="addProfileToProfileList()">Save</button>
+</form>
+
+<button (click)="showWhatFormContainsNow()">Show form</button>

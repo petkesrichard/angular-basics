@@ -8,7 +8,7 @@ export class UsersComponent implements OnInit{
 
     constructor()
     {
-        console.log("??? UserComponent");
+        console.log("UserComponent constructor");
     }
 
 }
