@@ -9,7 +9,6 @@
 </div>-->
 <div class="panel panel-default" style="width: 100%">
     <div class="panel-heading">Users list</div>
-    <users-detail *ngFor="let user of userList;" [value]="user"></users-detail>
-<users-delete></users-delete>
+    <users-detail *ngFor="let user of userList;" [value]="user" (onUserDelete)="updateList($event)"></users-detail>
 </div>
 

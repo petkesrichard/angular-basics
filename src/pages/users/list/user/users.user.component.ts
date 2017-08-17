@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core'
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import {UsersService} from "../../../../services/users.service";
 import {ActivatedRoute} from "@angular/router";
 import {Location} from '@angular/common';
@@ -8,14 +8,23 @@ import {Location} from '@angular/common';
     templateUrl: './users.user.component.html'
 })
 
-export class UsersUserComponent implements OnInit {
+export class UsersUserComponent {
 
     @Input("value")
     public user;
 
+    @Output()
+    public onUserDelete : EventEmitter<number> = new EventEmitter();
+
     public id: number;
 
     constructor(private userService:UsersService, private router: ActivatedRoute,private _location: Location){
+    }
+
+    deleteItem() {
+        // userService.deleteById(id).subscribe(() => ....);
+        console.log(this.user);
+        this.onUserDelete.emit(this.user.id);
     }
 
 }

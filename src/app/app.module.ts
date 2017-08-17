@@ -7,11 +7,10 @@ import {
     ProfileComponent,
     ProfileEditComponent,
     ProfileViewComponent,
-    AdminComponent,
     JobsComponent,
     JobsCreateComponent,
+    JobsListComponent,
     UsersCreateComponent,
-    UsersDeleteComponent,
     UsersListComponent,
     UsersUserComponent,
 } from 'pages';
@@ -35,13 +34,12 @@ import {HttpModule} from "@angular/http";
         ProfileEditComponent,
         ProfileViewComponent,
         UsersComponent,
-        UsersDeleteComponent,
         UsersCreateComponent,
         UsersListComponent,
         UsersUserComponent,
         JobsComponent,
         JobsCreateComponent,
-        AdminComponent,
+        JobsListComponent
     ],
     imports: [
         BrowserModule,

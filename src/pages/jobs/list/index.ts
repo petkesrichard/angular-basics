@@ -1,0 +1,1 @@
+export { JobsListComponent } from './jobs.list.component'
