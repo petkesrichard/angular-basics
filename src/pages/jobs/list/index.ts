@@ -1,1 +1,2 @@
-export { JobsListComponent } from './jobs.list.component'
+export * from './job';
+export { JobsList } from './jobs.list';

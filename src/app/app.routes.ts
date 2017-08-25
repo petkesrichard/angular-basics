@@ -1,9 +1,11 @@
 import { RouterModule,Routes } from "@angular/router";
-import { ProfileComponent, UsersComponent, AdminComponent, UsersDetail, UsersListComponent, JobsComponent } from "pages"
+import { ProfileComponent, UsersComponent, AdminComponent, UsersDetail, UsersListComponent, JobsComponent, JobsDetailComponent } from "pages"
 import {UsersCreateComponent} from "../pages/users/create/users.create.component";
 import {UsersUserComponent} from "../pages/users/list/user/users.user.component";
 import {UsersDeleteComponent} from "../pages/users/delete/users.delete.component";
-import {JobsListComponent} from "../pages/jobs/list/jobs.list.component";
+import {JobsList} from "../pages/jobs/list/jobs.list";
+import {JobsDetail} from "../pages/jobs/detail/jobs.detail";
+
 
 export const ROUTES: Routes =  [
     {
@@ -32,6 +34,10 @@ export const ROUTES: Routes =  [
     },
     {
         path: 'jobs/list',
-        component: JobsListComponent
+        component: JobsList
+    },
+    {
+        path: 'jobs/:id',
+        component: JobsDetail
     }
 ];

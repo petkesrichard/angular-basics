@@ -9,7 +9,9 @@ import {
     ProfileViewComponent,
     JobsComponent,
     JobsCreateComponent,
-    JobsListComponent,
+    JobsList,
+    JobsListJob,
+    JobsDetail,
     UsersCreateComponent,
     UsersListComponent,
     UsersUserComponent,
@@ -18,13 +20,14 @@ import {
 import {
     UsersService,
     JobsService,
-    ProfileService
+    ProfileService,
+    SkillsService
 } from 'services';
-
 
 import { ROUTES } from './app.routes';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
+
 
 
 @NgModule({
@@ -38,8 +41,10 @@ import {HttpModule} from "@angular/http";
         UsersListComponent,
         UsersUserComponent,
         JobsComponent,
-        JobsCreateComponent,
-        JobsListComponent
+        JobsList,
+        JobsDetail,
+        JobsListJob,
+        JobsCreateComponent
     ],
     imports: [
         BrowserModule,
@@ -50,7 +55,8 @@ import {HttpModule} from "@angular/http";
     providers: [
         UsersService,
         JobsService,
-        ProfileService
+        ProfileService,
+        SkillsService
     ],
     bootstrap: [ AppComponent ]
 })

@@ -30,7 +30,6 @@ export class UsersListComponent implements OnInit {
      }
 
     updateList(id: number) {
-        debugger;
         const selectedItemIndex = this.userList.findIndex((elem) => elem.id === id);
 
         this.userList.splice(selectedItemIndex, 1);

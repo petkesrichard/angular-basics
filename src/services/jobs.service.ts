@@ -8,21 +8,28 @@ export class JobsService {
     constructor(private http: Http) {}
 
     public getAllJobs() {
-        const url = 'http://localhost:3000/jobs';
+        const url = 'http://localhost:8081/jobs';
+
+        return this.http.get(url)
+            .map((response) => response.json());
+    }
+
+    public getJobById(id) {
+        const url = `http://localhost:8081/jobs/${id}`;
 
         return this.http.get(url)
             .map((response) => response.json());
     }
 
     public addJobToJobsList(body: object) {
-        const url = 'http://localhost:3000/jobs';
-
+        const url = 'http://localhost:8081/jobs';
+        console.log("body~~~~~",body);
         return this.http.post(url, body)
             .map((response) => response.json());
     }
 
     public deleteJob(id: number) {
-        const url = `http://localhost:3000/jobs/${id}`;
+        const url = `http://localhost:8081/jobs/${id}`;
 
         return this.http.delete(url)
             .map((response) => response.json());

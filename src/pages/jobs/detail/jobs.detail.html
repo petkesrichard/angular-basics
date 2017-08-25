@@ -1,0 +1,22 @@
+<div *ngIf="activeJobInfo">
+
+    <h1>Job name</h1>
+    <h3>{{ activeJobInfo.name }}</h3>
+    <br>
+
+    <h1>Description </h1>
+    <h3>{{activeJobInfo.description}}</h3>
+    <br>
+
+    <h1>Benefits</h1>
+    <h3>{{activeJobInfo.benefits}}</h3>
+    <br>
+
+    <h1>Requirements</h1>
+    <ul>
+        <li class="row list-group-item" *ngFor="let skills of activeJobInfo.Skills">
+            {{ skills.name }}
+        </li>
+    </ul>
+
+</div>

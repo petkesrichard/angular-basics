@@ -1,0 +1,1 @@
+export {JobsDetail} from './jobs.detail'

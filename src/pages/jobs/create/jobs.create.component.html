@@ -16,6 +16,10 @@
         </textarea>
     </div>
     <br>
+    <div>
+        <label for="benefits">Benefits</label>
+        <textarea id="benefits" [formControlName]="'benefits'"></textarea>
+    </div>
     <div [formArrayName]="'requirements'">
         <h4>Requirements</h4>
         <button type="button" (click)="addRequirementToList()">
@@ -24,7 +28,11 @@
 
         <div *ngFor="let control of createJobForm.get('requirements').controls; let i = index">
             <label>Requirement #{{ i + 1 }}</label>
-            <input [formControlName]="i">
+
+            <select [formControlName]="i">
+                <option *ngFor="let c of skills" [ngValue]="c">{{c.name}}</option>
+            </select>
+
             <p>________________</p>
         </div>
     </div>

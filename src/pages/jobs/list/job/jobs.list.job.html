@@ -1,0 +1,10 @@
+<li class="row list-group-item" style="display: flex; margin:0px;">
+    <div *ngIf="activeJobInfo" >
+        <h1 (click)="onSelect(activeJobInfo)">{{ activeJobInfo.name }}</h1>
+
+        <button (click)="deleteJob(activeJobInfo.id)"> Delete</button>
+    </div>
+
+</li>
+
+
