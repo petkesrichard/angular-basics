@@ -12,6 +12,15 @@
         "exclude": [
             "node_modules",
             "dist"
+        ],
+        "types": [
+            {
+                "compilerOptions": {
+                    "types": [
+                        "hammerjs"
+                    ]
+                }
+            }
         ]
     }
 }

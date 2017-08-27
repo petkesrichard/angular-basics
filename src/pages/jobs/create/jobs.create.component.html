@@ -1,40 +1,57 @@
-<h2>Create new job</h2>
+
 
 <form
         [formGroup]="createJobForm"
         (ngSubmit)="onSubmit()"
+        style="margin: 100px;border-top-style: solid;border-color: #673ab7"
 >
+    <h2>Create new job</h2>
+    <br>
 
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" [formControlName]="'name'">
-    </div>
+    <md-input-container class="form-group">
+        <input mdInput
+               placeholder="Name "
+               type="text"
+               [formControlName]="'name'">
+    </md-input-container>
+
     <br>
-    <div>
-        <label for="description">Description</label>
-        <textarea id="description" [formControlName]="'description'">
-        </textarea>
-    </div>
+
+    <md-input-container class="form-group">
+      <textarea mdInput
+                placeholder="Description"
+                type="text"
+                [formControlName]="'description'">
+      </textarea>
+    </md-input-container>
+
     <br>
-    <div>
-        <label for="benefits">Benefits</label>
-        <textarea id="benefits" [formControlName]="'benefits'"></textarea>
-    </div>
+
+    <md-input-container class="form-group">
+      <textarea mdInput
+                placeholder="Benefits"
+                type="text"
+                [formControlName]="'benefits'">
+      </textarea>
+    </md-input-container>
+    <br>
+
     <div [formArrayName]="'requirements'">
         <h4>Requirements</h4>
-        <button type="button" (click)="addRequirementToList()">
-            Add to list
+        <button md-button  type="button" (click)="addRequirementToList()">
+            <i class="material-icons" style="color:#673ab7">add_circle</i>
         </button>
 
         <div *ngFor="let control of createJobForm.get('requirements').controls; let i = index">
             <label>Requirement #{{ i + 1 }}</label>
 
-            <select [formControlName]="i">
-                <option *ngFor="let c of skills" [ngValue]="c">{{c.name}}</option>
+            <select md-select [formControlName]="i">
+                <option md-option *ngFor="let c of skills" [ngValue]="c">{{c.name}}</option>
             </select>
 
-            <p>________________</p>
         </div>
     </div>
     <button>Submit</button>
 </form>
+
+

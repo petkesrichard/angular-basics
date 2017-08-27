@@ -17,6 +17,8 @@ import {
     UsersUserComponent,
 } from 'pages';
 
+import { MaterialModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     UsersService,
     JobsService,
@@ -27,8 +29,8 @@ import {
 import { ROUTES } from './app.routes';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
-
-
+import 'hammerjs';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [ 
@@ -51,6 +53,9 @@ import {HttpModule} from "@angular/http";
         ReactiveFormsModule,
         RouterModule.forRoot(ROUTES),
         HttpModule,
+        MaterialModule,
+        BrowserAnimationsModule,
+        FormsModule
     ],
     providers: [
         UsersService,
