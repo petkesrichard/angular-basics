@@ -27,13 +27,7 @@ export class ProfileService {
             .map((response) => response.json());
     }
 
-    public getAllInfo(id: number): object {
-        const url = 'http://localhost:3000/profiles';
 
-        //.find((userInfo) => userInfo.id === id);
-
-        return user ? user : {};
-    }
 }
 
 

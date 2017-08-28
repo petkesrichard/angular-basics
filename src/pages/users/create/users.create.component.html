@@ -1,27 +1,44 @@
-<div class="create-user-content">
-    <h3>Create User</h3>
-
-    <form
+<form
         [formGroup]="userCreateForm"
-    >
-        <div>
-            <label for="userName">UsereName</label>
+        (ngSubmit)="createUser()"
+        style="margin: 100px;"
+>
+    <div style="text-align:center;width:100%">
+        <h2 style="width:100%;text-align:center">
+            <i class="material-icons">work</i>
+            Create User
+        </h2>
+        <hr style="width:60%">
+    </div>
 
-            <input id="userName" [formControlName]="'userName'">
+    <br>
 
-            <label for="password">Password</label>
+    <md-input-container class="form-group">
+        <input mdInput
+               placeholder="Username "
+               type="text"
+               [formControlName]="'username'">
+    </md-input-container>
 
-            <input id="password" [formControlName]="'password'">
+    <br>
 
-            <button type="button" class="generate-password-button">Generate</button>
+    <md-input-container class="form-group">
+        <input mdInput
+               placeholder="Password "
+               type="text"
+               [formControlName]="'password'">
+    </md-input-container>
+
+    <br>
+
+    <md-select md-select [formControlName]="'user_role'">
+        <div *ngFor="let r of roles">
+            <md-option [value]="r">{{r.code}}</md-option>
         </div>
+    </md-select>
 
-        <div>
-            <p id="errorMessage"></p>
-        </div>
+    <br>
 
-        <button class="create-button">Create User</button>
-    </form>
+    <button md-button  color="primary">Submit</button>
 
-</div>
-
+</form>

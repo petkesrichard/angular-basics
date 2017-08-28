@@ -23,7 +23,7 @@ export class JobsService {
 
     public addJobToJobsList(body: object) {
         const url = 'http://localhost:8081/jobs';
-        console.log("body~~~~~",body);
+
         return this.http.post(url, body)
             .map((response) => response.json());
     }

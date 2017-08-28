@@ -17,17 +17,32 @@ export class UsersListComponent implements OnInit {
     public userList = [];
 
     ngOnInit() {
-        this.userList = this.usersService.getAllUsers();
-        console.log(this.userList);
+        this.usersService.getAllUsers()
+            .subscribe(
+                (response: Response) => {
+                    this.userList = response;
+                    console.log(this.userList);
+                },
+                (error) => {
+                    console.log(error)
+                },
+                () => {
+                    console.log('finally');
+                }
+            );
     }
 
     constructor(private usersService:UsersService, private router:Router) {
-        console.log("??? UserList")
     }
 
     onSelect(user) {
        this.router.navigate(['/users', user.id]);
      }
+
+
+    public activateUserInfo(user: User) {
+        this.user= user;
+    }
 
     updateList(id: number) {
         const selectedItemIndex = this.userList.findIndex((elem) => elem.id === id);

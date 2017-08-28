@@ -1,11 +1,16 @@
-
-
 <form
         [formGroup]="createJobForm"
         (ngSubmit)="onSubmit()"
-        style="margin: 100px;border-top-style: solid;border-color: #673ab7"
+        style="margin: 100px;"
 >
-    <h2>Create new job</h2>
+    <div style="text-align:center;width:100%">
+        <h2 style="width:100%;text-align:center">
+            <i class="material-icons">work</i>
+            Create new job
+        </h2>
+        <hr style="width:60%">
+    </div>
+
     <br>
 
     <md-input-container class="form-group">
@@ -38,20 +43,22 @@
 
     <div [formArrayName]="'requirements'">
         <h4>Requirements</h4>
-        <button md-button  type="button" (click)="addRequirementToList()">
+        <button md-button type="button" (click)="addRequirementToList()">
             <i class="material-icons" style="color:#673ab7">add_circle</i>
         </button>
 
         <div *ngFor="let control of createJobForm.get('requirements').controls; let i = index">
-            <label>Requirement #{{ i + 1 }}</label>
+            <label style="margin-right: 30px">Requirement #{{ i + 1 }}</label>
 
-            <select md-select [formControlName]="i">
-                <option md-option *ngFor="let c of skills" [ngValue]="c">{{c.name}}</option>
-            </select>
+            <md-select md-select [formControlName]="i">
+                <div *ngFor="let c of skills"  >
+                    <md-option  [value]="c">{{c.name}}</md-option>
+                </div>
+            </md-select>
 
         </div>
     </div>
-    <button>Submit</button>
+    <button md-button  color="primary">Submit</button>
 </form>
 
 

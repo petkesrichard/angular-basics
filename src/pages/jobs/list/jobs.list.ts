@@ -31,7 +31,6 @@ export class JobsList implements OnInit {
         // this.jobs = this.jobsService.getAllJobs();
     }
 
-    public
 
     activateJobInfo(job: Job) {
         this.activeJobInfo = job;

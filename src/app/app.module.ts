@@ -17,7 +17,7 @@ import {
     UsersUserComponent,
 } from 'pages';
 
-import { MaterialModule } from '@angular/material';
+import {MaterialModule, MdToolbarModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     UsersService,
@@ -31,6 +31,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import 'hammerjs';
 import { FormsModule } from '@angular/forms';
+import {MdSelectModule} from '@angular/material';
+import {UserRolesService} from "../services/userRoles.service";
 
 @NgModule({
     declarations: [ 
@@ -55,10 +57,13 @@ import { FormsModule } from '@angular/forms';
         HttpModule,
         MaterialModule,
         BrowserAnimationsModule,
-        FormsModule
+        FormsModule,
+        MdSelectModule,
+        MdToolbarModule,
     ],
     providers: [
         UsersService,
+        UserRolesService,
         JobsService,
         ProfileService,
         SkillsService

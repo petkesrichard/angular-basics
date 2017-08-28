@@ -18,13 +18,22 @@ export class UsersUserComponent {
 
     public id: number;
 
-    constructor(private userService:UsersService, private router: ActivatedRoute,private _location: Location){
+    constructor(private userService:UsersService, private router: ActivatedRoute){
     }
 
     deleteItem() {
         // userService.deleteById(id).subscribe(() => ....);
         console.log(this.user);
         this.onUserDelete.emit(this.user.id);
+    }
+
+    public activateUserInfo(user: User) {
+        this.user= user;
+    }
+
+    public deleteUser(id) {
+        this.userService.deleteUser(id)
+            .subscribe();
     }
 
 }

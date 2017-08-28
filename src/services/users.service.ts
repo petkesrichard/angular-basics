@@ -1,60 +1,31 @@
 import { Injectable } from '@angular/core';
-
-
-const usersList: Array<object> = [{
-    id: 1,
-    name: 'User',
-    email: 'asdasdasd@yyy.com1'
-}, {
-    id: 2,
-    name: 'User2',
-    email: 'qqqq@yyy.com2'
-}, {
-    id: 3,
-    name: 'User3',
-    email: 'xsdasdasdx@yyy.com3'
-}, {
-    id: 4,
-    name: 'User4',
-    email: 'tttttt@yyy.com4'
-}];
-
-
+import { Http } from '@angular/http';
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class UsersService {
 
-    private userID:number;
-    constructor() {
-        console.log('****************');
-        console.log('creating service');
+    constructor(private http: Http) {}
+
+    public createUser(body: object) {
+        const url = 'http://localhost:8081/users';
+
+        return this.http.post(url, body)
+            .map((response) => response.json());
     }
 
     public getAllUsers() {
-        return usersList;
+        const url = 'http://localhost:8081/users';
+
+        return this.http.get(url)
+            .map((response) => response.json());
     }
 
-    public getUserById(id: number): object {
-        const user = usersList.find((userInfo) => userInfo.id === id);
+    public deleteUser(id: number) {
+        const url = `http://localhost:8081/users/${id}`;
 
-        return user ? user : {};
+        return this.http.delete(url)
+            .map((response) => response.json());
     }
 
-    public createUser(username:string,email:string) {
-        this.userID = Object.keys(usersList).length + 1;
-        const  newUser = {
-            id: this.userID,
-            name: username,
-            email: email,
-        }
-        usersList.push(newUser);
-    }
-
-    public editUser() {
-
-    }
-
-    public removeUser() {
-
-    }
 }

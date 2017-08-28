@@ -1,5 +1,4 @@
 <div class="app">
-
     <header>
         <md-toolbar color="primary">
             <span>Arobs Job assistance</span>
@@ -7,7 +6,7 @@
             <button md-icon-button [mdMenuTriggerFor]="menu">
                 <md-icon>more_vert</md-icon>
             </button>
-            <md-menu #menu="mdMenu">
+            <md-menu #menu="mdMenu" color="primary">
                 <button md-menu-item>
                     <md-icon>fingerprint</md-icon>
                     <span>Login</span>
@@ -25,13 +24,14 @@
 
 
         <nav md-tab-nav-bar>
-            <a md-tab-link
-               [routerLink]="['/profile']" (click)="activeLinkIndex = 1"
+            <a md-tab-link *ngFor="let menuItem of menuItems"
+               (click)="activateMenuItem(menuItem.id);currentUrl();"
+               [routerLink]="[menuItem.routerLink]"
                routerLinkActive #rla="routerLinkActive"
-               [active]="activeLinkIndex === 1">
-                Profile
+               [active]="isMenuItemActive(menuItem.id)">
+                {{ menuItem.name }}
             </a>
-            <a md-tab-link
+           <!-- <a md-tab-link
                [routerLink]="['/users']" (click)="activeLinkIndex = 2"
                routerLinkActive #rla="routerLinkActive"
                [active]="activeLinkIndex === 2">
@@ -42,14 +42,13 @@
                routerLinkActive #rla="routerLinkActive"
                [active]="activeLinkIndex === 3">
                 Jobs
-            </a>
+            </a>-->
         </nav>
     </header>
 
 
     <div class="aside-content">
         <aside>
-
             <div class="menu">
                 <button type="button" md-button (click)="sidenav.open()" style="width:100%">
                     Menu
@@ -58,9 +57,21 @@
 
             <md-sidenav-container class="example-container">
                 <md-sidenav #sidenav class="example-sidenav" (click)="sidenav.close()">
-                    <button routerLink="profile">Profile</button>
+                    <div *ngIf="currentRouteId">
+                        <button
+                                md-raised-button
+                                class="aside-button"
+                                *ngFor="let element of menuItems[currentRouteId].children"
+                                [routerLink]="element.routerLink"
 
-                    <div class="dropdown">
+                        >{{element.name}}
+                        </button>
+                    </div>
+
+
+
+
+                 <!--   <div class="dropdown">
                         <button routerLink="users" class="dropbtn">Users</button>
 
                         <div class="dropdown-content">
@@ -77,7 +88,7 @@
 
                             <a routerLink="jobs/list">List</a>
                         </div>
-                    </div>
+                    </div>-->
                 </md-sidenav>
 
 <!--

@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {UsersService} from "services"
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {UserRolesService} from "../../../services/userRoles.service";
 
 @Component({
     selector: 'users-create',
@@ -10,18 +11,18 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class UsersCreateComponent    {
     public userName:String;
     public email:String;
+    public roles: any[];
 
     public userCreateForm: FormGroup;
 
     constructor(
-        private usersService:UsersService,
+        private usersService:UsersService,private userRolesService:UserRolesService
     ){}
 
     public ngOnInit() {
-        // 1st step
         this.userCreateForm = new FormGroup({
-            // 2nd step
-            'userName': new FormControl(
+
+            'username': new FormControl(
                 null,
                 Validators.required,
                 null
@@ -30,12 +31,35 @@ export class UsersCreateComponent    {
                 null,
                 Validators.required,
                 null
+            ),
+            'user_role': new FormControl(
+                null,
+                Validators.required,
+                null
             )
         });
+
+        this.userRolesService.getAllRoles()
+            .subscribe(
+                (response: Response) => this.roles = response ,
+                (error) => { console.log(error) },
+                () => { console.log('finally'); }
+            );
     }
 
     createUser(){
-        this.usersService.createUser(this.userName,this.email);
+        const body = {
+            username: this.userCreateForm.value.username,
+            password: this.userCreateForm.value.password,
+            user_roles_id: this.userCreateForm.value.user_role.id
+        }
+        console.log("Create USER BODY",body);
+        this.usersService.createUser(body)
+            .subscribe(
+                (response) => console.log(response),
+                (error) => console.log(error)
+            );
     }
+
 
 }
