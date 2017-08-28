@@ -25,7 +25,7 @@
 
         <nav md-tab-nav-bar>
             <a md-tab-link *ngFor="let menuItem of menuItems"
-               (click)="activateMenuItem(menuItem.id);currentUrl();"
+               (click)="activateMenuItem(menuItem.id);sidenav.close()"
                [routerLink]="[menuItem.routerLink]"
                routerLinkActive #rla="routerLinkActive"
                [active]="isMenuItemActive(menuItem.id)">
@@ -50,58 +50,24 @@
     <div class="aside-content">
         <aside>
             <div class="menu">
-                <button type="button" md-button (click)="sidenav.open()" style="width:100%">
+                <button type="button" md-button (click)="sidenav.open();currentUrl();" style="width:100%">
                     Menu
                 </button>
             </div>
 
             <md-sidenav-container class="example-container">
-                <md-sidenav #sidenav class="example-sidenav" (click)="sidenav.close()">
+                <md-sidenav #sidenav class="example-sidenav">
                     <div *ngIf="currentRouteId">
                         <button
                                 md-raised-button
                                 class="aside-button"
                                 *ngFor="let element of menuItems[currentRouteId].children"
                                 [routerLink]="element.routerLink"
-
                         >{{element.name}}
                         </button>
                     </div>
-
-
-
-
-                 <!--   <div class="dropdown">
-                        <button routerLink="users" class="dropbtn">Users</button>
-
-                        <div class="dropdown-content">
-                            <a routerLink="users/create">Create</a>
-                            <a routerLink="users/list">List</a>
-                        </div>
-                    </div>
-
-                    <div class="dropdown">
-                        <button routerLink="jobs" class="dropbtn">Jobs</button>
-
-                        <div class="dropdown-content">
-                            <a routerLink="jobs">Create</a>
-
-                            <a routerLink="jobs/list">List</a>
-                        </div>
-                    </div>-->
                 </md-sidenav>
-
-<!--
-                <div class="example-sidenav-content">
-
-                </div>
--->
-
-
-
-
             </md-sidenav-container>
-
         </aside>
 
 

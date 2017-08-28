@@ -1,4 +1,4 @@
 <div class="panel panel-default" style="width: 100%">
     <div class="panel-heading">Jobs list</div>
-    <job *ngFor="let job of jobs;" [activeJobInfo]="job"></job>
+    <job *ngFor="let job of jobList;" [activeJobInfo]="job" (onJobDelete)="updateList($event)"></job>
 </div>

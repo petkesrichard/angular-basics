@@ -15,7 +15,20 @@ export class JobsListJob implements OnInit{
     public activeJobInfo;
     id: number;
 
+    @Output()
+        public onJobDelete : EventEmitter<number> = new EventEmitter();
 
+
+    deleteItem() {
+        // userService.deleteById(id).subscribe(() => ....);
+        console.log(this.activeJobInfo);
+        this.onJobDelete.emit(this.activeJobInfo.id);
+    }
+
+
+    public activateJobInfo(job: Job) {
+        this.activeJobInfo = job;
+    }
 
     constructor(private jobsService: JobsService, private router: Router) {}
 
@@ -30,17 +43,14 @@ export class JobsListJob implements OnInit{
         //     );
     }
 
-    onSelect(jobs) {
-        this.router.navigate(['/jobs', jobs.id]);
-    }
-
-    public activateJobInfo(job: Job) {
-        this.activeJobInfo = job;
-    }
-
     public deleteJob(id) {
         this.jobsService.deleteJob(id)
             .subscribe();
+    }
+
+
+    onSelect(jobs) {
+        this.router.navigate(['/jobs', jobs.id]);
     }
 
 

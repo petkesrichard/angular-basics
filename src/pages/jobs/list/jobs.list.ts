@@ -8,8 +8,7 @@ import {Router} from "@angular/router";
 })
 
 export class JobsList implements OnInit {
-    public jobs;
-    public activeJobInfo: Job;
+    public jobList = [];
 
     constructor(private jobsService: JobsService, private router: Router) {
     }
@@ -18,8 +17,8 @@ export class JobsList implements OnInit {
         this.jobsService.getAllJobs()
             .subscribe(
                 (response: Response) => {
-                    this.jobs = response;
-                    console.log(this.jobs);
+                    this.jobList = response;
+                    console.log(this.jobList);
                 },
                 (error) => {
                     console.log(error)
@@ -31,19 +30,13 @@ export class JobsList implements OnInit {
         // this.jobs = this.jobsService.getAllJobs();
     }
 
-
-    activateJobInfo(job: Job) {
-        this.activeJobInfo = job;
-    }
-
     onSelect(job) {
         this.router.navigate(['/jobs', job.id]);
     }
 
-    public
+    updateList(id: number) {
+        const selectedItemIndex = this.jobList.findIndex((elem) => elem.id === id);
 
-    deleteJob(id) {
-        this.jobsService.deleteJob(id)
-            .subscribe();
+        this.jobList.splice(selectedItemIndex, 1);
     }
 }

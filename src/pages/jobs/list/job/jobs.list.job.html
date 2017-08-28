@@ -2,7 +2,7 @@
     <div *ngIf="activeJobInfo" >
         <h1 (click)="onSelect(activeJobInfo)">{{ activeJobInfo.name }}</h1>
 
-        <button (click)="deleteJob(activeJobInfo.id)"> Delete</button>
+        <button (click)="deleteJob(activeJobInfo.id);deleteItem()"> Delete</button>
     </div>
 
 </li>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -10,8 +10,13 @@ export class AppComponent implements OnInit {
     public activeLinkIndex: number;
     public currentRoute;
     public currentRouteId: number;
+    @Output()
+        menuItemOnClick : EventEmitter<number> = new EventEmitter();
 
-public activeRouteObjectInfo: object;
+
+
+
+    public activeRouteObjectInfo: object;
     public menuItems = [{
         id: 0,
         name: 'Profile',
@@ -67,17 +72,19 @@ public activeRouteObjectInfo: object;
     }
 
     currentUrl() {
-        this.currentRoute =  this.menuItems.find((item) => item.routerLink === this.router.url);
+        this.currentRoute = this.menuItems.find((item) => item.routerLink === this.router.url);
 
         this.currentRouteId = this.currentRoute.id;
 
-        console.log("Current routeID",this.currentRoute.children[0].id);
+        this.menuItemOnClick.emit(this.currentRouteId);
     }
 
+
     ngOnInit() {
+
        /* let currentUrl = this.router.url;*/
         // gaseste ruta curenta
-    //    this.currentRoute = this.menuItems.find((item) => item.routerLink === this.router.url);
+
 
     }
 

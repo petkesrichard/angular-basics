@@ -2,11 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import {UsersService} from "services";
 import { Router, ActivatedRoute } from '@angular/router';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-}
+
 
 @Component({
     selector: 'users-list',
