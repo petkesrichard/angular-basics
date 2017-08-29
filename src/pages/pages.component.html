@@ -1,0 +1,69 @@
+<div class="app">
+    <header>
+        <md-toolbar color="primary">
+            <span>Arobs Job assistance</span>
+            <span class="spacer"></span>
+            <button md-icon-button [mdMenuTriggerFor]="menu">
+                <md-icon>more_vert</md-icon>
+            </button>
+            <md-menu #menu="mdMenu" color="primary">
+                <button md-menu-item (click)="onLogOut()">
+                    <md-icon>fingerprint</md-icon>
+                    <span>Logout</span>
+                </button>
+                <button md-menu-item disabled>
+                    <md-icon>announcement</md-icon>
+                    <span>Issues</span>
+                </button>
+                <button md-menu-item>
+                    <md-icon>notifications_off</md-icon>
+                    <span>Disable alerts</span>
+                </button>
+            </md-menu>
+        </md-toolbar>
+
+        <nav md-tab-nav-bar>
+            <a md-tab-link *ngFor="let menuItem of menuItems"
+               (click)="activateMenuItem(menuItem.id);"
+               [routerLink]="[menuItem.routerLink]"
+               routerLinkActive #rla="routerLinkActive"
+               [active]="isMenuItemActive(menuItem.id)">
+                {{ menuItem.name }}
+            </a>
+        </nav>
+    </header>
+
+    <div class="aside-content">
+        <aside *ngIf="activeRouteObjectInfo && activeRouteObjectInfo.children">
+            <div class="menu">
+                <button type="button" md-button style="width:100%">
+                    Menu
+                </button>
+            </div>
+
+            <div>
+                <div>
+                    <button
+                            md-raised-button
+                            class="aside-button"
+                            *ngFor="let element of activeRouteObjectInfo.children"
+                            [routerLink]="element.routerLink"
+                    >{{element.name}}
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="content">
+            <router-outlet>
+
+            </router-outlet>
+        </div>
+    </div>
+
+    <footer style="position:fixed;bottom:0;width:100%;style=text-align: center">
+        <md-toolbar  color="primary" class="md-scroll-shrink" >
+            <h1>by Richie</h1>
+        </md-toolbar>
+    </footer>
+</div>

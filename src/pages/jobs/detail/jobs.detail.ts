@@ -15,6 +15,7 @@ export class JobsDetail implements OnInit{
 
     ngOnInit(){
         this.id = +this.router.params.value.id;
+        console.log(this.id);
         this.jobsService.getJobById(this.id)
             .subscribe(
                 (response: Response) => this.activeJobInfo = response ,

@@ -1,12 +1,14 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router, RouterStateSnapshot} from "@angular/router";
+import {Component} from "@angular/core";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {StorageService} from "../services/storageService";
 
 @Component({
-    selector: 'my-app',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    selector:'page',
+    templateUrl:'./pages.component.html',
+    styleUrls: ['./pages.component.css']
 })
-export class AppComponent implements OnInit {
+
+export class PagesComponent {
     public activeLinkIndex: number;
     public logedInUserType: number;
 
@@ -14,47 +16,50 @@ export class AppComponent implements OnInit {
     public menuItems = [{
         id: 0,
         name: 'Profile',
-        routerLink: '/profile',
+        routerLink: '/pages/profile',
     }, {
         id: 1,
         name: 'Users',
-        routerLink: '/users',
+        routerLink: '/pages/users',
         children: [
             {
                 id: 0,
                 name: 'UserList',
-                routerLink: '/users/list'
+                routerLink: '/pages/users/list'
             },
             {
                 id: 1,
                 name: 'UserCreate',
-                routerLink: '/users/create'
+                routerLink: '/pages/users/create'
             }
-            ]
+        ]
     }, {
         id: 2,
         name: 'Jobs',
-        routerLink: '/jobs',
+        routerLink: '/pages/jobs',
         children: [
             {
                 id: 0,
                 name: 'JobList',
-                routerLink: '/jobs/list'
+                routerLink: '/pages/jobs/list'
             },
             {
                 id: 1,
                 name: 'JobCreate',
-                routerLink: '/jobs'
+                routerLink: '/pages/jobs'
             },
             {
                 id: 2,
                 name: 'JobEdit',
-                routerLink: '/jobs'
+                routerLink: '/pages/jobs'
             }
         ]
     }];
 
-    constructor(private route: ActivatedRoute,private router: Router) {}
+    constructor(private route: ActivatedRoute,
+                private router: Router,
+                private storageService: StorageService
+    ) {}
 
     ngOnInit() {
         this.activeLinkIndex = 0;
@@ -72,7 +77,6 @@ export class AppComponent implements OnInit {
                 }
             }
         );
-
     }
 
     public activateMenuItem(id: number) {
@@ -84,5 +88,9 @@ export class AppComponent implements OnInit {
         return this.activeLinkIndex === id;
     }
 
+    public onLogOut(){
+        this.router.navigate(['/login']);
+        this.storageService.removeLogedInUser();
+    }
 
 }

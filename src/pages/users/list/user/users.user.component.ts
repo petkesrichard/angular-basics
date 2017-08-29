@@ -27,9 +27,6 @@ export class UsersUserComponent {
         this.onUserDelete.emit(this.user.id);
     }
 
-    public activateUserInfo(user: User) {
-        this.user= user;
-    }
 
     public deleteUser(id) {
         this.userService.deleteUser(id)

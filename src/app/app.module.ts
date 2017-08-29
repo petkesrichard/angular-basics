@@ -33,6 +33,12 @@ import 'hammerjs';
 import { FormsModule } from '@angular/forms';
 import {MdSelectModule} from '@angular/material';
 import {UserRolesService} from "../services/userRoles.service";
+import {LoginComponent} from "../pages/login/login.component";
+import {LoginService} from "../services/login.service";
+import {PagesComponent} from "../pages/pages.component";
+import {AuthentificationGuard} from "../services/authentificationGuard";
+import {StorageService} from "../services/storageService";
+import {MdSnackBarModule} from '@angular/material';
 
 @NgModule({
     declarations: [ 
@@ -48,7 +54,9 @@ import {UserRolesService} from "../services/userRoles.service";
         JobsList,
         JobsDetail,
         JobsListJob,
-        JobsCreateComponent
+        JobsCreateComponent,
+        LoginComponent,
+        PagesComponent
     ],
     imports: [
         BrowserModule,
@@ -60,13 +68,17 @@ import {UserRolesService} from "../services/userRoles.service";
         FormsModule,
         MdSelectModule,
         MdToolbarModule,
+        MdSnackBarModule
     ],
     providers: [
         UsersService,
         UserRolesService,
         JobsService,
         ProfileService,
-        SkillsService
+        SkillsService,
+        LoginService,
+        StorageService,
+        AuthentificationGuard
     ],
     bootstrap: [ AppComponent ]
 })

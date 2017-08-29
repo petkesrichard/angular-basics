@@ -1,12 +1,12 @@
 <form
-        [formGroup]="userCreateForm"
-        (ngSubmit)="createUser()"
-        style="margin: 100px;"
+        [formGroup]="loginForm"
+        (ngSubmit)="checkUser()"
+        style="margin:15px;margin-top:20px;width: 100%;height:100%;"
 >
     <div style="text-align:center;width:100%">
         <h2 style="width:100%;text-align:center">
             <i class="material-icons">person</i>
-            Create User
+            Log in
         </h2>
         <hr style="width:60%">
     </div>
@@ -31,14 +31,5 @@
 
     <br>
 
-    <md-select md-select [formControlName]="'user_role'">
-        <div *ngFor="let r of roles">
-            <md-option [value]="r">{{r.code}}</md-option>
-        </div>
-    </md-select>
-
-    <br>
-
-    <button md-button (click)="checkUser();"  color="primary">Submit</button>
-
+    <button md-button type="submit" color="primary">Submit</button>
 </form>
