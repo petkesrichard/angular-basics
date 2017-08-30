@@ -17,7 +17,10 @@ import {
     UsersUserComponent,
 } from 'pages';
 
-import {MaterialModule, MdToolbarModule} from '@angular/material';
+import {
+    MaterialModule, MdButtonToggleModule, MdDatepicker, MdDatepickerModule, MdNativeDateModule,
+    MdToolbarModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     UsersService,
@@ -39,6 +42,10 @@ import {PagesComponent} from "../pages/pages.component";
 import {AuthentificationGuard} from "../services/authentificationGuard";
 import {StorageService} from "../services/storageService";
 import {MdSnackBarModule} from '@angular/material';
+import {PersonalComponent} from "../pages/profile/personal/personal.component";
+import {PersonalService} from "../services/personal.service";
+import {EducationComponent} from "../pages/profile/education/education.component";
+import {EducationService} from "../services/education.service";
 
 @NgModule({
     declarations: [ 
@@ -56,7 +63,9 @@ import {MdSnackBarModule} from '@angular/material';
         JobsListJob,
         JobsCreateComponent,
         LoginComponent,
-        PagesComponent
+        PagesComponent,
+        PersonalComponent,
+        EducationComponent
     ],
     imports: [
         BrowserModule,
@@ -68,7 +77,10 @@ import {MdSnackBarModule} from '@angular/material';
         FormsModule,
         MdSelectModule,
         MdToolbarModule,
-        MdSnackBarModule
+        MdSnackBarModule,
+        MdDatepickerModule,
+        MdButtonToggleModule,
+        MdNativeDateModule
     ],
     providers: [
         UsersService,
@@ -78,7 +90,9 @@ import {MdSnackBarModule} from '@angular/material';
         SkillsService,
         LoginService,
         StorageService,
-        AuthentificationGuard
+        AuthentificationGuard,
+        PersonalService,
+        EducationService
     ],
     bootstrap: [ AppComponent ]
 })

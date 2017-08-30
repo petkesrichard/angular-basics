@@ -5,3 +5,5 @@ export { SkillsService } from './skills.service';
 export { UserRolesService } from './userRoles.service';
 export { LoginService } from './login.service';
 export { StorageService } from './storageService';
+export { PersonalService } from './personal.service';
+export { EducationService } from './education.service';

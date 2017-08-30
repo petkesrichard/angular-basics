@@ -17,6 +17,28 @@ export class PagesComponent {
         id: 0,
         name: 'Profile',
         routerLink: '/pages/profile',
+        children: [
+            {
+                id: 0,
+                name: 'Personal Info',
+                routerLink: '/pages/personal'
+            },
+            {
+                id: 1,
+                name: 'Education',
+                routerLink: '/pages/education'
+            },
+            {
+                id: 2,
+                name: 'Work Experience',
+                routerLink: '/pages/work_experience'
+            },
+            {
+                id: 3,
+                name: 'Personal Skills',
+                routerLink: '/pages/user_skills'
+            }
+        ]
     }, {
         id: 1,
         name: 'Users',

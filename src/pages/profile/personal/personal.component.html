@@ -1,0 +1,46 @@
+<form
+        [formGroup]="createPersonalForm"
+        (ngSubmit)="onSubmit()"
+        style="margin: 100px;"
+>
+    <div style="text-align:center;width:100%">
+        <h2 style="width:100%;text-align:center">
+            <i class="material-icons">work</i>
+            Personal Info
+        </h2>
+        <hr style="width:60%">
+    </div>
+
+    <br>
+
+    <md-input-container class="form-group">
+        <input mdInput
+               placeholder="First Name "
+               type="text"
+               [formControlName]="'firstName'">
+    </md-input-container>
+
+    <br>
+
+    <md-input-container class="form-group">
+        <input mdInput
+               placeholder="Last Name "
+               type="text"
+               [formControlName]="'lastName'">
+    </md-input-container>
+
+    <br>
+
+    <md-input-container class="form-group">
+      <textarea mdInput
+                placeholder="Description"
+                type="text"
+                [formControlName]="'description'">
+      </textarea>
+    </md-input-container>
+
+    <br>
+
+    <button md-button  color="primary">Submit</button>
+
+</form>

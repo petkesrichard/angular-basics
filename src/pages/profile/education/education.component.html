@@ -1,0 +1,51 @@
+<form
+        [formGroup]="createEducationForm"
+        (ngSubmit)="onSubmit()"
+        style="margin: 100px;"
+>
+    <div style="text-align:center;width:100%">
+        <h2 style="width:100%;text-align:center">
+            <i class="material-icons">work</i>
+            Education Info
+        </h2>
+        <hr style="width:60%">
+    </div>
+
+    <br>
+
+    <md-input-container class="form-group">
+        <input mdInput
+               placeholder="School Name "
+               type="text"
+               [formControlName]="'schoolName'">
+    </md-input-container>
+
+    <br>
+
+    <md-input-container>
+     <!--   <input mdInput
+               [mdDatepicker]="'graduationDate'"
+               [formControlName]="'graduationDate'"
+               placeholder="Graduation Date">
+        <button mdSuffix [mdDatepickerToggle]="graduationDate"></button>-->
+        <input mdInput [mdDatepicker]="graduationDate" placeholder="Graduation date" [formControlName]="'graduationDate'">
+        <button mdSuffix [mdDatepickerToggle]="graduationDate"></button>
+        <md-datepicker #startPicker></md-datepicker>
+    </md-input-container>
+    <md-datepicker #graduationDate></md-datepicker>
+
+    <br>
+
+    <md-input-container class="form-group">
+      <textarea mdInput
+                placeholder="Description"
+                type="text"
+                [formControlName]="'description'">
+      </textarea>
+    </md-input-container>
+
+    <br>
+
+    <button md-button type="submit" color="primary">Submit</button>
+
+</form>

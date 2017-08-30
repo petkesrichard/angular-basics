@@ -8,6 +8,8 @@ import {JobsDetail} from "../pages/jobs/detail/jobs.detail";
 import {LoginComponent} from "../pages/login/login.component";
 import {PagesComponent} from "../pages/pages.component";
 import {AuthentificationGuard} from "../services/authentificationGuard";
+import {PersonalComponent} from "../pages/profile/personal/personal.component";
+import {EducationComponent} from "../pages/profile/education/education.component";
 
 
 export const ROUTES: Routes =  [
@@ -28,6 +30,14 @@ export const ROUTES: Routes =  [
             {
                 path: 'profile',
                 component: ProfileComponent,
+            },
+            {
+                path: 'personal',
+                component: PersonalComponent
+            },
+            {
+                path: 'education',
+                component: EducationComponent
             },
             {
                 path: 'users',
