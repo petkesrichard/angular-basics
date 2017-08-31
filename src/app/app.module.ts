@@ -46,6 +46,7 @@ import {PersonalComponent} from "../pages/profile/personal/personal.component";
 import {PersonalService} from "../services/personal.service";
 import {EducationComponent} from "../pages/profile/education/education.component";
 import {EducationService} from "../services/education.service";
+import {ApplyService} from "../services/apply.service";
 
 @NgModule({
     declarations: [ 
@@ -92,7 +93,8 @@ import {EducationService} from "../services/education.service";
         StorageService,
         AuthentificationGuard,
         PersonalService,
-        EducationService
+        EducationService,
+        ApplyService
     ],
     bootstrap: [ AppComponent ]
 })

@@ -27,11 +27,6 @@ export class JobsList implements OnInit {
                     console.log('finally');
                 }
             );
-        // this.jobs = this.jobsService.getAllJobs();
-    }
-
-    onSelect(job) {
-        this.router.navigate(['/jobs', job.id]);
     }
 
     updateList(id: number) {

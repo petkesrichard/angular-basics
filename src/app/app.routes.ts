@@ -1,4 +1,4 @@
-import { RouterModule,Routes } from "@angular/router";
+    import { RouterModule,Routes } from "@angular/router";
 import { ProfileComponent, UsersComponent, AdminComponent, UsersDetail, UsersListComponent, JobsComponent, JobsDetailComponent } from "pages"
 import {UsersCreateComponent} from "../pages/users/create/users.create.component";
 import {UsersUserComponent} from "../pages/users/list/user/users.user.component";

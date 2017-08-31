@@ -16,64 +16,76 @@ export class PagesComponent {
     public menuItems = [{
         id: 0,
         name: 'Profile',
+        role: 1,
         routerLink: '/pages/profile',
         children: [
             {
                 id: 0,
                 name: 'Personal Info',
-                routerLink: '/pages/personal'
+                routerLink: '/pages/personal',
+                role: 1
             },
             {
                 id: 1,
                 name: 'Education',
-                routerLink: '/pages/education'
+                routerLink: '/pages/education',
+                role: 1
             },
             {
                 id: 2,
                 name: 'Work Experience',
-                routerLink: '/pages/work_experience'
+                routerLink: '/pages/work_experience',
+                role: 1
             },
             {
                 id: 3,
                 name: 'Personal Skills',
-                routerLink: '/pages/user_skills'
+                routerLink: '/pages/user_skills',
+                role: 1
             }
         ]
     }, {
         id: 1,
+        role: 2,
         name: 'Users',
         routerLink: '/pages/users',
         children: [
             {
                 id: 0,
                 name: 'UserList',
-                routerLink: '/pages/users/list'
+                routerLink: '/pages/users/list',
+                role: 3
             },
             {
                 id: 1,
                 name: 'UserCreate',
-                routerLink: '/pages/users/create'
+                routerLink: '/pages/users/create',
+                role: 3
             }
         ]
     }, {
         id: 2,
         name: 'Jobs',
+        role: 1,
         routerLink: '/pages/jobs',
         children: [
             {
                 id: 0,
                 name: 'JobList',
-                routerLink: '/pages/jobs/list'
+                routerLink: '/pages/jobs/list',
+                role: 1
             },
             {
                 id: 1,
                 name: 'JobCreate',
-                routerLink: '/pages/jobs'
+                routerLink: '/pages/jobs',
+                role: 2
             },
             {
                 id: 2,
                 name: 'JobEdit',
-                routerLink: '/pages/jobs'
+                routerLink: '/pages/jobs',
+                role: 2
             }
         ]
     }];

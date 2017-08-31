@@ -7,3 +7,4 @@ export { LoginService } from './login.service';
 export { StorageService } from './storageService';
 export { PersonalService } from './personal.service';
 export { EducationService } from './education.service';
+export { ApplyService } from './apply.service.ts';

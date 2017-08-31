@@ -18,4 +18,11 @@
             {{ skills.name }}
         </li>
     </ul>
+
+    <br>
+
+    <div *ngIf="this.storageService.getLogedInUser().user_roles_id == 1">
+        <button md-button (click)="createJobApply()" color="primary">Submit</button>
+    </div>
+
 </div>

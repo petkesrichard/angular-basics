@@ -22,14 +22,19 @@
             </md-menu>
         </md-toolbar>
 
-        <nav md-tab-nav-bar>
-            <a md-tab-link *ngFor="let menuItem of menuItems"
-               (click)="activateMenuItem(menuItem.id);"
-               [routerLink]="[menuItem.routerLink]"
-               routerLinkActive #rla="routerLinkActive"
-               [active]="isMenuItemActive(menuItem.id)">
-                {{ menuItem.name }}
-            </a>
+        <nav md-tab-nav-bar style="display:inline">
+            <div >
+                <div *ngFor="let menuItem of menuItems">
+                    <a      *ngIf="(menuItem.role < this.storageService.getLogedInUser().user_roles_id) || (menuItem.role == 1)"
+                            md-tab-link
+                            (click)="activateMenuItem(menuItem.id);"
+                            [routerLink]="[menuItem.routerLink]"
+                            routerLinkActive #rla="routerLinkActive"
+                            [active]="isMenuItemActive(menuItem.id)">
+                        {{ menuItem.name }}
+                    </a>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -42,13 +47,13 @@
             </div>
 
             <div>
-                <div>
+                <div  *ngFor="let element of activeRouteObjectInfo.children">
                     <button
+                            *ngIf="element.role <= this.storageService.getLogedInUser().user_roles_id"
                             md-raised-button
                             class="aside-button"
-                            *ngFor="let element of activeRouteObjectInfo.children"
                             [routerLink]="element.routerLink"
-                    >{{element.name}}
+                    >{{element.name}} {{this.storageService.getLogedInUser().user_roles_id}}
                     </button>
                 </div>
             </div>

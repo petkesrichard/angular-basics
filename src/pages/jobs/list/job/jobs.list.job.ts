@@ -50,7 +50,7 @@ export class JobsListJob implements OnInit{
 
 
     onSelect(jobs) {
-        this.router.navigate(['/jobs', jobs.id]);
+        this.router.navigate(['/pages/jobs', jobs.id]);
     }
 
 
