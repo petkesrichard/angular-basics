@@ -29,7 +29,7 @@ export class EducationComponent {
                (response) => {
 
                    console.log("dataID:",response.data.id);
-                   const personalId = response.data.id
+                   const personalId = response.data.id;
 
                    const body = {
                        school_name: this.createEducationForm.value.schoolName,

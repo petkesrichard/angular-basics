@@ -36,10 +36,6 @@ export class UsersListComponent implements OnInit {
      }
 
 
-    public activateUserInfo(user: User) {
-        this.user= user;
-    }
-
     updateList(id: number) {
         const selectedItemIndex = this.userList.findIndex((elem) => elem.id === id);
 

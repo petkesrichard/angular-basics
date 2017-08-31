@@ -13,10 +13,9 @@ export class PersonalService {
             .map((response) => response.json());
     }
 
-    public addPersonalInfo(body: object) {
-        const url = 'http://localhost:8081/personal_info';
-
-        return this.http.post(url, body)
+    public updatePersonalInfo(body,id) {
+            const url = `http://localhost:8081/personal_info/${id}`
+        return this.http.put(url, body)
             .map((response) => response.json());
     }
 
@@ -25,4 +24,11 @@ export class PersonalService {
         return this.http.get(url)
             .map((response) => response.json())
     }
+
+    public getPersonalId(id) {
+        const url = `http://localhost:8081/personal_info/${id}`;
+        return this.http.get(url)
+            .map((response) => response.json())
+    }
+
 }

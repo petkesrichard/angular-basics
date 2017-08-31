@@ -1,46 +1,34 @@
-<form
-        [formGroup]="createPersonalForm"
-        (ngSubmit)="onSubmit()"
-        style="margin: 100px;"
->
-    <div style="text-align:center;width:100%">
-        <h2 style="width:100%;text-align:center">
-            <i class="material-icons">work</i>
-            Personal Info
-        </h2>
-        <hr style="width:60%">
-    </div>
+<h1>Personal info</h1>
 
-    <br>
 
-    <md-input-container class="form-group">
-        <input mdInput
-               placeholder="First Name "
-               type="text"
-               [formControlName]="'firstName'">
-    </md-input-container>
 
-    <br>
+<div *ngIf="personalInfo">
+<md-card-content>
+    <md-card>
 
-    <md-input-container class="form-group">
-        <input mdInput
-               placeholder="Last Name "
-               type="text"
-               [formControlName]="'lastName'">
-    </md-input-container>
+        <h4>
+            <i class="material-icons">person</i>
+            First Name: {{personalInfo.data.first_name}}
+        </h4>
 
-    <br>
+        <br>
 
-    <md-input-container class="form-group">
-      <textarea mdInput
-                placeholder="Description"
-                type="text"
-                [formControlName]="'description'">
-      </textarea>
-    </md-input-container>
+        <h4>
+            <i class="material-icons">person</i>
+            Last Name: {{personalInfo.data.last_name}}
+        </h4>
 
-    <br>
+        <br>
 
-    <button md-button  color="primary">Submit</button>
+        <h4>
+            <i class="material-icons">description</i>
+            Description: {{personalInfo.data.description}}
+        </h4>
 
-</form>
+        <button md-button (click)="onEdit(personalInfo)">Edit</button>
+    </md-card>
+
+</md-card-content>
+</div>
+
+

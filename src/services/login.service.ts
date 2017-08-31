@@ -26,9 +26,13 @@ export class LoginService {
                 if (jsonResponse.data) {
                     this.storageService.setLogedInUser(jsonResponse.data);
                     this.router.navigate(['/pages/profile']);
+                    this.snackBar.open('Welcome!', null, {
+                        duration: 2000,
+                    });
+                    this.snackBar.setAction;
                 }
                 else {
-                    this.snackBar.open('Username or password error!', null, null,{
+                    this.snackBar.open('Username or password error!', null, {
                         duration: 2000,
                     });
                 }

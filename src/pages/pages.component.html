@@ -23,7 +23,7 @@
         </md-toolbar>
 
         <nav md-tab-nav-bar style="display:inline">
-            <div >
+            <div style="display: flex">
                 <div *ngFor="let menuItem of menuItems">
                     <a      *ngIf="(menuItem.role < this.storageService.getLogedInUser().user_roles_id) || (menuItem.role == 1)"
                             md-tab-link
@@ -39,7 +39,7 @@
     </header>
 
     <div class="aside-content">
-        <aside *ngIf="activeRouteObjectInfo && activeRouteObjectInfo.children">
+        <aside *ngIf="activeRouteObjectInfo && activeRouteObjectInfo.children" >
             <div class="menu">
                 <button type="button" md-button style="width:100%">
                     Menu

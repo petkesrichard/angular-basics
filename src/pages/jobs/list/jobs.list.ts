@@ -18,7 +18,6 @@ export class JobsList implements OnInit {
             .subscribe(
                 (response: Response) => {
                     this.jobList = response;
-                    console.log(this.jobList);
                 },
                 (error) => {
                     console.log(error)

@@ -8,8 +8,9 @@ import {JobsDetail} from "../pages/jobs/detail/jobs.detail";
 import {LoginComponent} from "../pages/login/login.component";
 import {PagesComponent} from "../pages/pages.component";
 import {AuthentificationGuard} from "../services/authentificationGuard";
-import {PersonalComponent} from "../pages/profile/personal/personal.component";
+import { PersonalEditComponent} from "../pages/profile/personal/edit/personal.edit.component";
 import {EducationComponent} from "../pages/profile/education/education.component";
+    import {PersonalComponent} from "../pages/profile/personal/personal.component";
 
 
 export const ROUTES: Routes =  [
@@ -34,6 +35,10 @@ export const ROUTES: Routes =  [
             {
                 path: 'personal',
                 component: PersonalComponent
+            },
+            {
+                path: 'personal/edit',
+                component: PersonalEditComponent
             },
             {
                 path: 'education',

@@ -1,0 +1,1 @@
+export {PersonalEditComponent} from './personal.edit.component';

@@ -42,11 +42,12 @@ import {PagesComponent} from "../pages/pages.component";
 import {AuthentificationGuard} from "../services/authentificationGuard";
 import {StorageService} from "../services/storageService";
 import {MdSnackBarModule} from '@angular/material';
-import {PersonalComponent} from "../pages/profile/personal/personal.component";
+import {PersonalEditComponent} from "../pages/profile/personal/edit/personal.edit.component";
 import {PersonalService} from "../services/personal.service";
 import {EducationComponent} from "../pages/profile/education/education.component";
 import {EducationService} from "../services/education.service";
 import {ApplyService} from "../services/apply.service";
+import {PersonalComponent} from "../pages/profile/personal/personal.component";
 
 @NgModule({
     declarations: [ 
@@ -66,6 +67,7 @@ import {ApplyService} from "../services/apply.service";
         LoginComponent,
         PagesComponent,
         PersonalComponent,
+        PersonalEditComponent,
         EducationComponent
     ],
     imports: [

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import {JobsService} from "../../../../services/jobs.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {StorageService} from "../../../../services/storageService";
 
 
 @Component({
@@ -10,7 +11,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 
 export class JobsListJob implements OnInit{
-    public jobs;
     @Input()
     public activeJobInfo;
     id: number;
@@ -26,11 +26,8 @@ export class JobsListJob implements OnInit{
     }
 
 
-    public activateJobInfo(job: Job) {
-        this.activeJobInfo = job;
-    }
 
-    constructor(private jobsService: JobsService, private router: Router) {}
+    constructor(private jobsService: JobsService, private router: Router,private storageService: StorageService) {}
 
     ngOnInit(){
         console.log(this.activeJobInfo)

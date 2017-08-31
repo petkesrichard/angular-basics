@@ -1,12 +1,12 @@
 <form
-        [formGroup]="createEducationForm"
-        (ngSubmit)="onSubmit()"
+        [formGroup]="createPersonalForm"
+        (ngSubmit)="updateUser()"
         style="margin: 100px;"
 >
     <div style="text-align:center;width:100%">
         <h2 style="width:100%;text-align:center">
             <i class="material-icons">work</i>
-            Education Info
+            Personal Info
         </h2>
         <hr style="width:60%">
     </div>
@@ -15,25 +15,18 @@
 
     <md-input-container class="form-group">
         <input mdInput
-               placeholder="School Name "
+               placeholder="First Name "
                type="text"
-               [formControlName]="'schoolName'">
+               [formControlName]="'firstName'">
     </md-input-container>
 
     <br>
 
-    <md-input-container>
-     <!--   <input mdInput
-               [mdDatepicker]="'graduationDate'"
-               [formControlName]="'graduationDate'"
-               placeholder="Graduation Date">
-        <button mdSuffix [mdDatepickerToggle]="graduationDate"></button>-->
-        <input
-                mdInput
-               placeholder="Graduation date"
-               [formControlName]="'graduationDate'"
-                type="text">
-
+    <md-input-container class="form-group">
+        <input mdInput
+               placeholder="Last Name "
+               type="text"
+               [formControlName]="'lastName'">
     </md-input-container>
 
     <br>
